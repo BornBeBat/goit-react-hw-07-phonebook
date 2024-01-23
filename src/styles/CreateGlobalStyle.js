@@ -1,12 +1,23 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-:root {
-  --background: #e7ffff;
-  --background1: #ceffff;
-  --background2: #67ffff;
-  --accent1: #25a2a2;
-  --accent2: #67ffff;
+
+@import-normalize; /* bring in normalize.css styles */
+
+body {
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.background};
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 h1,
 h2,
@@ -23,15 +34,17 @@ ol {
 button {
   font-size: inherit;
   font-style: inherit;
-  color: var(--background);
-  background-color: #63d4d3;
-  border: 2px solid var(--accent1);
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.acsent2};
+  border: 2px solid ${({ theme }) => theme.colors.acsent1};
   border-radius: 0.8em;
   padding: 0.3em 1em;
   &:hover {
-    background-color: var(--accent2);
-    box-shadow: 0px 0px 18px 5px var(--accent1) inset,
-      0px 0px 8px 5px var(--accent1);
+  color: ${({ theme }) => theme.colors.acsent1};
+
+    background-color: ${({ theme }) => theme.colors.acsent2};
+    box-shadow: 0px 0px 18px 5px ${({ theme }) => theme.colors.acsent1} inset,
+      0px 0px 8px 5px ${({ theme }) => theme.colors.acsent1};
     cursor: pointer;
   }
 }`;

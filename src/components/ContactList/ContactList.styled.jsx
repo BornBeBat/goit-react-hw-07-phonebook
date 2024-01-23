@@ -14,5 +14,5 @@ export const Item = styled.li`
 `;
 
 export const Text = styled.p`
-  text-shadow: 5px 5px 6px var(--accent2);
+  text-shadow: 5px 5px 6px ${({ theme }) => theme.colors.acsent2};
 `;
