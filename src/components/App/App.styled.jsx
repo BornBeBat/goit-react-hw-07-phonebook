@@ -5,6 +5,7 @@ export const AppContainer = styled.div`
   padding: 2em;
   background-color: ${({ theme }) => theme.colors.background};
   width: 90vw;
+  min-height: 90vh;
   margin: 80px auto;
   border-radius: 1em;
   border: 0.2em solid ${({ theme }) => theme.colors.acsent1};

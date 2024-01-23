@@ -5,19 +5,17 @@ export const List = styled.ul`
   max-width: calc(100vw - 48px);
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 16px;
-
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  /* width: 25em; */
-  /* gap: 26px; */
 `;
 
 export const Item = styled.li`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  padding: 10px 26px;
+  outline: 1px solid ${({ theme }) => theme.colors.acsent1};
+  border-radius: 8px;
+  & button {
+    display: block;
+    margin-top: 16px;
+    margin-left: auto;
+  }
 `;
 
 export const Text = styled.p`
