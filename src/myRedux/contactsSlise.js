@@ -1,17 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { contacts_BASE } from './contacts';
+import { fetchContacts, addContact } from './operations';
 
 export const contactsSlise = createSlice({
   name: 'contacts',
-  initialState: contacts_BASE,
+  initialState: { items: [], isLoading: false, error: null },
   reducers: {
-    addContact: (state, action) => {
-      return [...state, action.payload];
-    },
     deleteContact: (state, action) => {
-      return state.filter(el => el.id !== action.payload);
+      return {
+        ...state,
+        items: state.items.filter(el => el.id !== action.payload),
+      };
     },
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchContacts.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchContacts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.items = action.payload;
+      })
+      .addCase(fetchContacts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 
-export const { addContact, deleteContact } = contactsSlise.actions;
+export const { deleteContact } = contactsSlise.actions;
