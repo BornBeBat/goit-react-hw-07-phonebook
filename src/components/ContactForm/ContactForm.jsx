@@ -7,7 +7,7 @@ import { addContact } from 'myRedux/operations';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
@@ -17,8 +17,8 @@ export const ContactForm = () => {
       case 'name':
         setName(value);
         break;
-      case 'number':
-        setNumber(value);
+      case 'phone':
+        setPhone(value);
         break;
       default:
         break;
@@ -32,9 +32,9 @@ export const ContactForm = () => {
       return;
     }
     const id = nanoid();
-    dispatch(addContact({ id, name, number }));
+    dispatch(addContact({ id, name, phone }));
     setName('');
-    setNumber('');
+    setPhone('');
   };
   return (
     <>
@@ -50,11 +50,11 @@ export const ContactForm = () => {
           />
         </Label>
         <Label>
-          Number
+          Phone
           <Input
             type="tel"
-            name="number"
-            value={number}
+            name="phone"
+            value={phone}
             required
             onChange={handleChange}
           />

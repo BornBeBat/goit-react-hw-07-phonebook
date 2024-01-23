@@ -4,9 +4,9 @@ import './index.css';
 
 import { GlobalStyle } from 'styles/CreateGlobalStyle';
 import { Provider } from 'react-redux';
-import { persistor, store } from './myRedux/store';
+import { /*  persistor, */ store } from './myRedux/store';
 import { App } from 'components';
-import { PersistGate } from 'redux-persist/integration/react';
+// import { PersistGate } from 'redux-persist/integration/react';
 import { darkTheme, lightTheme } from 'styles/theme';
 import { ThemeProvider } from 'styled-components';
 
@@ -15,9 +15,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <ThemeProvider theme={'theme' ? darkTheme : lightTheme}> */}
     <ThemeProvider theme={'theme' ? lightTheme : darkTheme}>
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <App />
-        </PersistGate>
+        {/* <PersistGate loading={null} persistor={persistor}> */}
+        <App />
+        {/* </PersistGate> */}
       </Provider>
       <GlobalStyle />
     </ThemeProvider>

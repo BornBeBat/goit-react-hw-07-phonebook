@@ -10,9 +10,9 @@ export const getContacts = async () => {
 };
 export const setContact = async data => {
   const response = await instance.post('/contacts', data);
-  return response.statusText;
+  return response.data;
 };
 export const deleteContact = async id => {
   const response = await instance.delete(`/contacts/${id}`);
-  return response.statusText;
+  return response.data;
 };

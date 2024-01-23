@@ -6,7 +6,12 @@ export const fetchContacts = createAsyncThunk('fetchContacts', async () => {
   return response;
 });
 
-export const addContact = createAsyncThunk('fetchContacts', async data => {
+export const addContact = createAsyncThunk('addContact', async data => {
   const response = await api.setContact(data);
+  return response;
+});
+
+export const deleteContact = createAsyncThunk('deleteContact', async id => {
+  const response = await api.deleteContact(id);
   return response;
 });
