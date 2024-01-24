@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Forma, Input, Label } from './ContactForm.styled';
-import { getContacts } from 'myRedux/selectors';
+import { getContacts, getIsLoading } from 'myRedux/selectors';
 import { addContact } from 'myRedux/operations';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const contacts = useSelector(getContacts);
+  const isLoading = useSelector(getIsLoading);
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -59,7 +60,9 @@ export const ContactForm = () => {
             onChange={handleChange}
           />
         </Label>
-        <button type="submit">Add contact</button>
+        <button type="submit" disabled={isLoading}>
+          Add contact
+        </button>
       </Forma>
     </>
   );

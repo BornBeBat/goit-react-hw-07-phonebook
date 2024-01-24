@@ -37,7 +37,16 @@ button {
   border: 2px solid ${({ theme }) => theme.colors.acsent1};
   border-radius: 0.8em;
   padding: 0.3em 1em;
-  &:hover {
+  &:disabled{
+font-size: inherit;
+  font-style: inherit;
+    border-radius: 0.8em;
+  padding: 0.3em 1em;
+  background-color: grey;
+  border-color: grey;
+  color:#0000008c;
+  }
+  &:not(:disabled):hover {
   color: ${({ theme }) => theme.colors.acsent1};
 
     background-color: ${({ theme }) => theme.colors.acsent2};
