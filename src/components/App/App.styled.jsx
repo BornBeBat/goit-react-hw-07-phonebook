@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const AppContainer = styled.div`
+  position: relative;
   font-size: 1em;
   padding: 2em;
   background-color: ${({ theme }) => theme.colors.background};
@@ -12,6 +13,11 @@ export const AppContainer = styled.div`
   box-shadow: 0px 0px 18px 5px ${({ theme }) => theme.colors.acsent2} inset,
     0px 0px 8px 5px ${({ theme }) => theme.colors.acsent1};
   margin: 0 auto;
+  & .MuiSwitch-root {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+  }
 `;
 export const MainTitle = styled.h1`
   font-size: 1.7em;
